@@ -1,34 +1,47 @@
 return {
         "nvim-lualine/lualine.nvim",
         dependencies = {
-                'nvim-tree/nvim-web-devicons'
+                'nvim-tree/nvim-web-devicons',
         },
 
         config = function ()
                 require("lualine").setup {
                         options = {
                                 icon_enabled = true,
-                                theme = 'horizon',
+                                theme = 'tokyonight',
                                 component_separators = { left = '', right = ''},
                                 section_separators = { left = '', right = ''},
                                 disabled_filetypes = {
                                         statusline = {},
                                         winbar = {},
                                 },
+                                padding = 1,
                                 ignore_focus = {},
                                 always_divide_middle = true,
-                                always_show_tabline = true,
+                                always_show_tabline = false,
                                 globalstatus = true,
                                 refresh = {
-                                        statusline = 50,
-                                        tabline = 50,
-                                        winbar = 50,
+                                        statusline = 1000,
+                                        tabline = 1000,
+                                        winbar = 1000,
+                                        events = {
+                                                'WinEnter',
+                                                'BufEnter',
+                                                'BufWritePost',
+                                                'SessionLoadPost',
+                                                'FileChangedShellPost',
+                                                'VimResized',
+                                                'Filetype',
+                                                'CursorMoved',
+                                                'CursorMovedI',
+                                                'ModeChanged',
+                                        },
                                 }
                         },
                         sections = {
                                 lualine_a = {'mode'},
                                 lualine_b = {'branch', 'diff', 'diagnostics'},
-                                lualine_c = {'filename','filesize'},
+                                lualine_c = {'searchcount','tabs','filesize'},
                                 lualine_x = {'encoding', 'fileformat', 'filetype'},
                                 lualine_y = {'progress'},
                                 lualine_z = {'location'}

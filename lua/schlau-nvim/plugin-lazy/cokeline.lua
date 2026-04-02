@@ -7,12 +7,12 @@ return {
         },
         config = function ()
                 local get_hex = require('cokeline.hlgroups').get_hl_attr
-                local fg = "#E1E1E1"
-                local bg = "#54487A"
-                local inactive_fg = "#DDDFFF"
-                local inactive_bg = "#111111"
+                local fg = "#2ac3de"
+                local bg = "#292e42"
+                local inactive_fg = "#545c7e"
+                local inactive_bg = "#14141b"
                 local yellow = "#ffc777"
-                local green = "#3DEB63"
+                local green = "#00ffd2"
                 local red = "#ff007c"
                 local close = "#c0caf5"
 
@@ -27,7 +27,8 @@ return {
                                                 local _text = ''
                                                 if buffer.index > 1 then _text = '' end
                                                 if buffer.is_focused or buffer.is_first then
-                                                        _text = _text .. ''
+                                                        -- _text = _text .. ''
+                                                        _text = _text .. ''
                                                 end
                                                 return _text
                                         end,

@@ -27,6 +27,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+vim.g.netrw_winsize = 25
 
 --vim.opt.scrolloff = 8
 vim.opt.isfname:append("@-@")
