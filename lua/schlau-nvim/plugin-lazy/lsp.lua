@@ -74,7 +74,6 @@ return {
                                                 lspconfig.harper_ls.setup {
                                                         capabilities = capabilities,
                                                         settings = {
-                                                                ['harper_ls'] = {},
                                                         },
                                                 }
                                         end,
@@ -92,7 +91,7 @@ return {
                         })
                         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-                        cmp.setup({
+                        require ('cmp').setup({
                                 snippet = {
                                         expand = function(args)
                                                 require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -112,7 +111,12 @@ return {
                                 sources = cmp.config.sources({
                                         { name = 'nvim_lsp' },
                                         { name = 'luasnip' }, -- For Luasnip users.
-                                        { name = 'cmp-tw2css' },
+                                        -- {
+                                        --         name = 'cmp-tw2css',
+                                        --         option = {
+                                        --                 filetypes = { "html", "javascriptreact", "typescriptreact", "svelte", "vue" }
+                                        --         }
+                                        -- },
                                         { name = 'pandoc_references'},
                                 },
                                 {

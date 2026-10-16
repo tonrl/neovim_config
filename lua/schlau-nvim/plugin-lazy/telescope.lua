@@ -1,7 +1,6 @@
 return {
         "nvim-telescope/telescope.nvim",
-
-        tag = "0.1.5",
+        version = '*',
 
         dependencies = {
                 "nvim-lua/plenary.nvim",
@@ -11,16 +10,25 @@ return {
         },
 
         config = function()
+                local actions = require('telescope.actions')
                 require('telescope').setup({
                         defaults = {
                                 layout_config = {
                                         height = 0.7,
                                         prompt_position = "top",
+                                },
+                                mappings = {
+                                        i = {
+                                                ["<CR>"] = actions.select_tab,
+                                        },
+                                        n = {
+                                                ["<CR>"] = actions.select_tab,
+                                        },
                                 }
                         },
                         pickers = {
                                 find_files = {
-                                        thme = "dropdown",
+                                        theme = "dropdown",
                                 }
                         },
                         extensions = {
@@ -50,7 +58,7 @@ return {
                         builtin.grep_string({ search = vim.fn.input("Grep > ") })
                 end)
                 vim.keymap.set('n', '<leader>sh', builtin.help_tags, {desc = '[S]earch [H]elp'})
-                -- Search for Neovim config file
+                -- Search for Neovim configuration file
                 vim.keymap.set('n', '<leader>sn', function()
                         builtin.find_files ({ cwd = vim.fn.stdpath 'config' })
                 end, {desc = '[S]earch [N]eovim files'})

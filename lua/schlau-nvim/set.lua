@@ -2,7 +2,7 @@
 -- init.lua (.config/nvim/schlau/init.lua) 
 -- Basic setting for neovim (add numbers etc)
 
-vim.opt.guicursor = ''
+vim.opt.guicursor = "a:hor1-blinkon550-blinkoff550,i:ver1,v-ve:block-blinkon0"
 vim.opt.number = true  -- Number
 vim.opt.relativenumber = true --Relativenumber
 
@@ -11,8 +11,8 @@ vim.opt.autoindent = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.autoread = true
-vim.opt.expandtab = true
-vim.opt.wrap = false
+vim.opt.expandtab = false
+vim.opt.wrap = true
 
 vim.opt.title = true
 vim.opt.wildmenu = true
